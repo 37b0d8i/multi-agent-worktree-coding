@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-14T09:30:00Z",
+  "integration_branch": "integration",
+  "last_merge": {
+    "task_id": "T-41",
+    "branch": "agent/worker/T-41",
+    "commit": "d4e5f6",
+    "result": "green"
+  },
+  "file_locks": {
+    "src/api/routes.ts": { "owner": "worker", "task_id": "T-42", "until": "2026-11-15T12:00:00Z" },
+    "src/api/routes.test.ts": { "owner": "worker", "task_id": "T-42", "until": "2026-11-15T12:00:00Z" }
+  },
+  "tasks": [
+    {
+      "task_id": "T-42",
+      "title": "Add pagination to list endpoint",
+      "status": "in-progress",
+      "assignee": "worker",
+      "reviewer": "orchestrator",
+      "branch": "agent/worker/T-42",
+      "file_scope": ["src/api/routes.ts", "src/api/routes.test.ts"],
+      "acceptance_criteria": ["page & size params", "tests cover empty page", "CI green"],
+      "blocked_by": [],
+      "bounces": 0,
+      "history": [
+        { "at": "2026-11-12T08:00:00Z", "event": "created", "by": "coordinator" },
+        { "at": "2026-11-12T08:05:00Z", "event": "assigned", "by": "coordinator" },
+        { "at": "2026-11-12T09:10:00Z", "event": "patch_ready", "by": "worker" }
+      ]
+    }
+  ]
+}
