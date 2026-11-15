@@ -118,6 +118,11 @@ is gone: treat as absent and go to Recovery, not retry-in-a-loop.
 
 ### Bootstrap an absent agent (coordinator)
 
+These are the mechanical launch steps. When peers are unexpectedly absent or
+vanished mid-workflow, run the Recovery authorization gate below first, then
+use these steps to (re)launch. During initial setup the user asked for, you
+may run them directly.
+
 1. Ensure the role's worktree exists (see Worktree and branch setup) and is on
    the expected branch.
 2. Create a pane rooted at that worktree:
