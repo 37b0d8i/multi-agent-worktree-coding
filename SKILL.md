@@ -5,8 +5,9 @@ description: Use when coordinating multiple coding agents (coordinator,
   ledger — especially when the agents run in Herdr tabs/panes and you need to
   start or re-establish worker/orchestrator sessions that are not yet running
   (no pane to message, pane_not_found, agent_not_found), relay messages, handle
-  worker approval dialogs, bootstrap a repo with no remote, assign tasks, review
-  patches, merge agent branches, or update the ledger.
+  worker approval dialogs, bootstrap a repo with no remote, choose which
+  CLI/model runs each role, assign tasks, review patches, merge agent branches,
+  or update the ledger.
 ---
 # Multi-Agent Worktree Coding
 
@@ -157,6 +158,25 @@ may run them directly.
    ```
 
    If the agent is not detected, `herdr agent explain <pane-id>` shows why.
+
+### Choosing the agent and model per role
+
+`--kind` selects which CLI runs a role; the **model** is that CLI's own
+concern, not a `herdr` flag. Each role can run a different CLI and model.
+
+- **Supported kind** — forward the CLI's model flag after `--`; herdr passes
+  trailing args to the agent executable:
+
+  ```bash
+  herdr agent start worker --kind claude --pane <pane-id> -- --model sonnet
+  ```
+
+- **Unsupported kind** (manual launch) — include the CLI's model flag in the
+  command itself: `herdr pane run <pane-id> <cli-command-with-model-flag>`.
+
+The exact flag and model names vary by CLI (e.g. `claude --model <alias>`);
+check that CLI's `--help`. `herdr agent start` has no `--model` of its own —
+the model flag goes after `--`, not before it.
 
 ### Recovery: vanished or never-started peers
 
